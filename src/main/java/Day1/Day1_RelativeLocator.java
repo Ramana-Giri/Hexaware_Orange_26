@@ -11,6 +11,9 @@ import java.time.Duration;
 
 public class Day1_RelativeLocator {
     public static void main(String[] args) throws InterruptedException {
+    	
+    	// I did not understand any shit in this file so my future self dw you did not forget anything.
+    	
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
