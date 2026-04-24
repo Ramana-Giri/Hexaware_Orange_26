@@ -1,4 +1,4 @@
-package Day1;
+package day1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Day1_Testing_Login_Module {
+public class Day1_Testing_Login_Module{
 	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
@@ -24,6 +24,8 @@ public class Day1_Testing_Login_Module {
 		
 		testLoginWithValidMailValidPassword(driver);
 		Thread.sleep(1000);
+		
+		driver.close();
 	}
 	
 	public static void testLoginWithValidMailValidPassword(WebDriver driver) {

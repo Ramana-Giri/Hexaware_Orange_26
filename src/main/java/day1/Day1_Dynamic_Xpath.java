@@ -1,4 +1,4 @@
-package Day1;
+package day1;
 import java.time.Duration;
 
 import org.openqa.selenium.By;

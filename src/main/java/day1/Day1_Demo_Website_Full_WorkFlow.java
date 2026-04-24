@@ -1,4 +1,6 @@
-package Day1;
+package day1;
+
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +19,7 @@ public class Day1_Demo_Website_Full_WorkFlow {
 		
 		driver.get("https://demowebshop.tricentis.com/login");
 		driver.manage().window().maximize();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // this line is used to wait for max of 10 secs for each task to complete
 		
 		// id selector
 		driver.findElement(By.cssSelector("#Email")).sendKeys("somerandomemail@gmail.com");
@@ -42,7 +44,7 @@ public class Day1_Demo_Website_Full_WorkFlow {
 				RelativeLocator.with(By.tagName("input")).toRightOf(searchBoxElement)
 				).click();
 		
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
 		
 		// select functionality
 		driver.findElement(By.xpath("(//div[@class='product-item'])[1]")).click();
@@ -50,7 +52,7 @@ public class Day1_Demo_Website_Full_WorkFlow {
 		// add to cart  functionality
 		driver.findElement(By.xpath("//input[starts-with(@id,'add-to-cart-button-')]")).click();
 		
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		
 		// click shopping cart
 		driver.findElement(By.partialLinkText("Shopping cart")).click();
@@ -63,7 +65,7 @@ public class Day1_Demo_Website_Full_WorkFlow {
 		
 		//update the cart
 		driver.findElement(By.name("updatecart")).click();
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
 		
 		// click terms button
 		driver.findElement(By.cssSelector("#termsofservice")).click();
@@ -102,32 +104,32 @@ public class Day1_Demo_Website_Full_WorkFlow {
 		
 		// click continue
 		driver.findElement(By.cssSelector("input[value='Continue']")).click();
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		
 		
 		// click continue for shipping address
 		WebElement backElement = driver.findElement(By.linkText("Back"));
 		driver.findElement(
 				RelativeLocator.with(By.tagName("input")).below(backElement)).click();
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		
 		// click continue shipping method
 		WebElement paymentMethodElement = driver.findElement(By.xpath("//h2[text()='Payment method']"));
 		driver.findElement(
 				RelativeLocator.with(By.tagName("input")).above(paymentMethodElement)).click();
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 
 		// click continue for payment method
 		WebElement paymentInformationElement = driver.findElement(By.xpath("//h2[text()='Payment information']"));
 		driver.findElement(
 				RelativeLocator.with(By.tagName("input")).above(paymentInformationElement)).click();
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 
 //		// click continue for payment information
 		WebElement confirmOrderElement = driver.findElement(By.xpath("//h2[text()='Confirm order']"));
 		driver.findElement(
 				RelativeLocator.with(By.tagName("input")).above(confirmOrderElement)).click();
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 
 //		// click confirm for order confirmation
 		driver.findElement(

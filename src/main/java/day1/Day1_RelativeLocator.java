@@ -1,4 +1,4 @@
-package Day1;
+package day1;
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

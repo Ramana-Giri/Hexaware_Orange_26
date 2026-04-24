@@ -1,4 +1,4 @@
-package Day1;
+package day1;
 
 import java.util.List;
 
@@ -48,9 +48,13 @@ public class Day1_Practice {
 		List<WebElement> classNameTextList = driver.findElements(By.className("title"));
 		for(WebElement classNameText : classNameTextList) System.out.println(classNameText.getText());
 		
+		// . means class
+		// # id
+		// no prefix means tag
+		// tagName[attribute=value]
+		// tagName[attribute=value][attribute2=value2]
 		String cssSelectorText = driver.findElement(By.cssSelector(".buttons")).getText();
 		System.out.println("Css selector : "+ cssSelectorText); // we are not getting any text output 
-		
 		
 		driver.quit();
 	}
