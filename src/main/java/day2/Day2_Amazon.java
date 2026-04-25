@@ -1,6 +1,7 @@
 package day2;
 
 import java.time.Duration;
+import java.util.Set;
 
 import io.github.cdimascio.dotenv.*;
 
@@ -10,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -28,12 +30,48 @@ public class Day2_Amazon {
 	public static void main(String[] args) throws InterruptedException {
 		driver.get("https://www.amazon.in/login"); // Intentionally gave wrong url cuz when I give crt url it get
 													// detected as bot
+		String parent_handle = driver.getWindowHandle();
 		goBackToHomePage();
-//		login();
+		login();
 		searchProduct();
 		selectProduct();
-		
+		switchToProductHandle(parent_handle);
+		addProductToCart();
 //		driver.quit();
+	}
+
+	private static void addProductToCart() throws InterruptedException {
+//		driver.get("https://www.amazon.in/vivo-X300-Pro-Additional-Exchange/dp/B0G26FN2MK/ref=sr_1_6?dib=eyJ2IjoiMSJ9.lFGsBaNdfbLuYPa9gAhRSJzz2sFp3xvlQpd453pMzHXgI7yH0KMFS3Vr47BkCuHtM_hcgTxXADdKS5wJQ9P2iKmJo-Yl17OVfD5f9hbukaB9uucr2_cPkMLvaoMkGfsJFtP33FPzhqKj7zcWUiY8UASEpdPenvEKv-5pQVttAbf1HxhTJAxYGof_Yp2tHPcJAQyD1RZyy5631ztBq2e95SgJE-xvdHaLtihZI56bjMM.y8tBa4Sjcg6B88J-9_OAJEcfZl0sbtGgq9GZYAlUKJk&dib_tag=se&keywords=vivo+x+series+phones&qid=1777117386&sr=8-6");
+		WebElement cartButton = driver.findElement(By.xpath("//input[@title='Buy Now']"));
+		System.out.println("buy button found");
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("window.scrollBy(0, 1000)");
+		driver.findElement(RelativeLocator.with(By.tagName("input")).above(cartButton)).click();
+		System.out.println("Clicked add to cart button");
+		
+		WebElement cartBtn = wait.until(ExpectedConditions.elementToBeClickable(
+			    By.cssSelector("#hctp-attach-side-sheet input.a-button-input")
+			));
+
+		cartBtn.click();
+		
+//		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//input[text()=' Added to cart ']")));
+//		WebElement cartSpan = driver.findElement(By.xpath("//input[text()=' Cart ']"));
+//		driver.findElement(RelativeLocator.with(By.tagName("input")).above(cartSpan)).click();
+	}
+
+	private static void switchToProductHandle(String parent_handle) {
+		System.out.println(parent_handle);
+		Set<String> handles = driver.getWindowHandles();
+		System.out.println(handles);
+		for (String handle1 : handles) {
+			if (!handle1.equals(parent_handle)) {
+				
+				driver.switchTo().window(handle1);
+				System.out.println("Swithced to new window : " + handle1);
+				break;
+			}
+		}
 	}
 
 	private static void selectProduct() throws InterruptedException {
