@@ -44,11 +44,13 @@ public class Day2_Amazon {
 
 	private static void addPaymentMethod() {
 		driver.findElement(By.xpath("//input[@value='SelectableAddCreditCard']")).click();
-		
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.partialLinkText("Add a new credit or debit card")));
+
+		wait.until(ExpectedConditions
+				.visibilityOfAllElementsLocatedBy(By.partialLinkText("Add a new credit or debit card")));
 		driver.findElement(By.partialLinkText("Add a new credit or debit card")).click();
-		
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector("iframe[name='ApxSecureIframe']")));
+
+		wait.until(
+				ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector("iframe[name='ApxSecureIframe']")));
 		driver.findElement(By.name("addCreditCardNumber")).sendKeys("12131234567");
 		driver.findElement(By.name("ppw-accountHolderName")).sendKeys("abcd");
 		Select monthSelect = new Select(driver.findElement(By.name("ppw-expirationDate_month")));
@@ -59,9 +61,9 @@ public class Day2_Amazon {
 
 	private static void addProductToCart() throws InterruptedException {
 //		driver.get("https://www.amazon.in/vivo-X300-Pro-Additional-Exchange/dp/B0G26FN2MK/ref=sr_1_6?dib=eyJ2IjoiMSJ9.lFGsBaNdfbLuYPa9gAhRSJzz2sFp3xvlQpd453pMzHXgI7yH0KMFS3Vr47BkCuHtM_hcgTxXADdKS5wJQ9P2iKmJo-Yl17OVfD5f9hbukaB9uucr2_cPkMLvaoMkGfsJFtP33FPzhqKj7zcWUiY8UASEpdPenvEKv-5pQVttAbf1HxhTJAxYGof_Yp2tHPcJAQyD1RZyy5631ztBq2e95SgJE-xvdHaLtihZI56bjMM.y8tBa4Sjcg6B88J-9_OAJEcfZl0sbtGgq9GZYAlUKJk&dib_tag=se&keywords=vivo+x+series+phones&qid=1777117386&sr=8-6");
-		WebElement cartButton = driver.findElement(By.xpath("//input[@title='Buy Now']"));
+		WebElement buyButton = driver.findElement(By.xpath("//input[@title='Buy Now']"));
 		System.out.println("buy button found");
-		driver.findElement(RelativeLocator.with(By.tagName("input")).above(cartButton)).click();
+		driver.findElement(RelativeLocator.with(By.tagName("input")).above(buyButton)).click();
 		System.out.println("Clicked add to cart button");
 		WebElement cartBtn = wait.until(ExpectedConditions
 				.elementToBeClickable(By.cssSelector("#hctp-attach-side-sheet input.a-button-input")));
@@ -77,7 +79,6 @@ public class Day2_Amazon {
 		System.out.println(handles);
 		for (String handle1 : handles) {
 			if (!handle1.equals(parent_handle)) {
-
 				driver.switchTo().window(handle1);
 				System.out.println("Swithced to new window : " + handle1);
 				break;
@@ -89,7 +90,7 @@ public class Day2_Amazon {
 		WebElement product = driver.findElement(By.partialLinkText("X300 Pro 5G (Dune Gold, 16GB RAM, 512GB Storage)"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView({block: 'center'});", product);
-//		Thread.sleep(3000);
+//		Thread.sleep(2000);
 		product.click();
 	}
 

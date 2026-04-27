@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="register">
+    <parameter name="gender" value="Male"/>
+    <parameter name="firstName" value="dharun"/>
+    <parameter name="lastName" value="Kumar"/>
+    <parameter name="email" value="dharun007@gmail.com"/>
+    <parameter name="password" value="dharu@0007"/>
+    <parameter name="confirmPassword" value="dharu@0007"/>
+    <classes>
+      <class name="day3.DemoWebsiteRegister"/>
+    </classes>
+  </test> 
+</suite> <!-- Suite -->

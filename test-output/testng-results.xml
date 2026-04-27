@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-04-27T17:02:35 IST" name="Suite" finished-at="2026-04-27T17:04:35 IST" duration-ms="119890">
+    <groups>
+    </groups>
+    <test started-at="2026-04-27T17:02:35 IST" name="LoginTest" finished-at="2026-04-27T17:04:35 IST" duration-ms="119890">
+      <class name="day3.AmazonTestNGAutomation">
+        <test-method is-config="true" signature="setup()[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:02:35 IST" name="setup" finished-at="2026-04-27T17:02:50 IST" duration-ms="15050" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:02:50 IST" name="login" finished-at="2026-04-27T17:03:11 IST" duration-ms="21108" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[loamramg@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ramana@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="searchProduct(java.lang.String)[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:03:11 IST" name="searchProduct" data-provider="searchProductData" finished-at="2026-04-27T17:03:23 IST" depends-on-methods="day3.AmazonTestNGAutomation.login" duration-ms="11399" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[vivo x series phones]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchProduct -->
+        <test-method signature="selectProduct(java.lang.String)[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:03:23 IST" name="selectProduct" data-provider="selectProductData" finished-at="2026-04-27T17:03:23 IST" depends-on-methods="day3.AmazonTestNGAutomation.searchProduct" duration-ms="401" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[X300 Pro 5G]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectProduct -->
+        <test-method signature="switchToProductHandle()[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:03:23 IST" name="switchToProductHandle" finished-at="2026-04-27T17:03:23 IST" depends-on-methods="day3.AmazonTestNGAutomation.selectProduct" duration-ms="35" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- switchToProductHandle -->
+        <test-method signature="addProductToCart()[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:03:23 IST" name="addProductToCart" finished-at="2026-04-27T17:04:03 IST" depends-on-methods="day3.AmazonTestNGAutomation.switchToProductHandle" duration-ms="39416" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductToCart -->
+        <test-method signature="addPaymentMethod(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:04:03 IST" name="addPaymentMethod" data-provider="creditCardData" finished-at="2026-04-27T17:04:13 IST" depends-on-methods="day3.AmazonTestNGAutomation.addProductToCart" duration-ms="10002" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1234567890]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[qwertyuio]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[02]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2030]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addPaymentMethod -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:day3.AmazonTestNGAutomation@3bd82cf5]" started-at="2026-04-27T17:04:13 IST" name="teardown" finished-at="2026-04-27T17:04:35 IST" duration-ms="22331" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- day3.AmazonTestNGAutomation -->
+    </test> <!-- LoginTest -->
+  </suite> <!-- Suite -->
+</testng-results>
